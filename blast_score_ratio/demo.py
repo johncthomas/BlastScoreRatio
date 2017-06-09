@@ -1,4 +1,4 @@
-import blast_score_ratio.bsr
+from blast_score_ratio.bsr import get_bsr
 import matplotlib.pyplot as plt
 import inspect, os
 
@@ -11,7 +11,7 @@ package_path = os.path.dirname(
 paff = os.path.join(package_path + '/Examples/')
 
 # get BSR results, a BSR_RecordSet
-bsr_results = blast_score_ratio.bsr.get_bsr(
+bsr_results = get_bsr(
     work_path=paff,
     job_name='Test',
     reference_fasta = paff+'example_A.faa',

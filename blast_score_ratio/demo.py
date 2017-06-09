@@ -1,6 +1,8 @@
-import blast_score_ratio
+import blast_score_ratio.bsr
 import matplotlib.pyplot as plt
 import inspect, os
+
+"""Test the installation of blast_score_ratio and demonstrate functionality"""
 
 package_path = os.path.dirname(
     inspect.getfile(inspect.currentframe())  # gets string of .py path
@@ -9,7 +11,7 @@ package_path = os.path.dirname(
 paff = os.path.join(package_path + '/Examples/')
 
 # get BSR results, a BSR_RecordSet
-bsr_results = blast_score_ratio.get_bsr(
+bsr_results = blast_score_ratio.bsr.get_bsr(
     work_path=paff,
     job_name='Test',
     reference_fasta = paff+'example_A.faa',

@@ -14,6 +14,12 @@ get_bsr() is the main function, see it's documentation for use. A
 BSR_RecordSet containing BSR_Record objects is produced."""
 
 
+#todo: integrate with IPRS, maybe add or recieve details from IPRS results table
+#todo support BLOSSUM
+#todo: sort func in RecordSet
+
+
+
 # PAM is more accurate for closely related sequences (which is what we are intested in.
 # Scoring matrices used to generate reference scores without invoking BLAST
 # Turns out BLAST doesn't support PAM10.
@@ -566,33 +572,17 @@ def get_bsr(work_path, job_name, reference_fasta, comparison_fastas,
     return final_results
 
 def test():
-    print('Running demo.py')
+    #print('Running demo.py')
     import blast_score_ratio.demo
-    print("\n\nHopefully it didn't crash")
-
-# def run_from_command_line_not_implimented():
-#     parser = argparse.ArgumentParser(
-#         description="""Obtain Blast Score Ratios of protein sequences to identify potentially
-#         conserved or horizontally transferred genes.""")
-#     # work_path, job_name, primary_fasta: str, comparison_fastas, strain_names, force_redo = False
-#     parser.add_argument('--job-name',
-#                         help = 'String to be used as prefix for all generated files')
-#     parser.add_argument('--work-path',
-#                         help = 'Path were all generated files will be stored')
-#     parser.add_argument('--primary',
-#                         help = 'FastA file containing the primary sequences from which BSR will be generated')
-#
-
-
-
-#todo: integrate with IPRS, maybe add or recieve details from IPRS results table
-#todo support BLOSSUM
-#todo: sort func in RecordSet
+    #print("\n\nHopefully it didn't crash")
 
 
 
 
-# if __name__ == '__main__':
+
+
+
+
 
 
 

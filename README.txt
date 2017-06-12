@@ -13,9 +13,13 @@ sequence containing the results of the analysis. Charts showing relative BSR
 in the form of a 2-D graph, histogram and heatmap can be quickly generated.
 
 This program should be run from within the Python environment using
-blast_score_ratio.bsr.get_bsr(*args). See get_bsr.__doc__ for usage
-instructions. See demo.py for an example project flow and the
-the bsr module for more information.
+blast_score_ratio.bsr.get_bsr(*args). All functions and classes are fully
+documented. The best way to understand how this works is to look at demo.py
+for an example project.
+
+Example:
+    import blast_score_ratio.bsr as bsr
+    bsr.test()
 
 Requires NCBI BLAST command line application available here:
     ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/

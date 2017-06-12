@@ -21,7 +21,7 @@ Example:
     import blast_score_ratio.bsr as bsr
     bsr.test()
 
-Requires NCBI BLAST command line application available here:
+Requires NCBI BLAST+ command line >=2.2.29 application available here:
     ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
 BLAST binaries must be in your computer's path.
 Also requires biopython and matplotlib packages.

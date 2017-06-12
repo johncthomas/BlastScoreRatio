@@ -505,7 +505,7 @@ def get_bsr(work_path, job_name, reference_fasta, comparison_fastas,
     """
     assert len(comparison_fastas) == len(strain_names)-1
 
-    matrix = MATRICES[matrix]
+    #matrix = MATRICES[matrix]
 
     created_files = []
     # Create (or load) the initial BSR_records from the prime fasta

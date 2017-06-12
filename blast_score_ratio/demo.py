@@ -2,11 +2,17 @@ from blast_score_ratio.bsr import get_bsr
 import matplotlib.pyplot as plt
 import inspect, os
 
-"""Test the installation of blast_score_ratio and demonstrate functionality"""
-
 package_path = os.path.dirname(
     inspect.getfile(inspect.currentframe())  # gets string of .py path
 )
+
+print("""
+*****************************************************************************
+Test the installation of blast_score_ratio and demonstrate functionality.
+Edit this file ({}/demo.py) to view the commands being run.
+*****************************************************************************
+
+""".format(package_path))
 
 paff = os.path.join(package_path + '/Examples/')
 
@@ -21,7 +27,7 @@ bsr_results = get_bsr(
     # Order here should match comparison_fastas above. Used to obtain strain
     # specific data using index number or string
     strain_names = ['Strain A', 'Strain B', 'Strain C', 'Strain D'],
-    force_redo = False
+    force_redo = True
 )
 
 
@@ -30,13 +36,13 @@ bsr_results = get_bsr(
 print(bsr_results.files)
 
 # you can do 2 kinds of plots directly from the results object
-bsr_results.plot_2d((3, 1))
+fig, ax = bsr_results.plot_2d((3, 1)) # fig, ax objects are returned
+# you can do things with the plots using matplotlib
 plt.annotate('Common to strains A & D,\nnot strain B', xy = (0.95, 0.03), xytext = (0.6, 0.2),
              arrowprops=dict(facecolor='black', shrink=0.05))
 plt.show()
 
-# The plotting methods return pyplot objects that can be used to save the figure, etc
-fig, ax = bsr_results.plot_2d(('Strain B', 'Strain C')) # Can also specify strains by names
+bsr_results.plot_2d(('Strain B', 'Strain C')) # Can also specify strains by names
 plt.show()
 
 # By default the histogram includes all strains
@@ -46,7 +52,7 @@ plt.show()
 # Heat map.
 # supplying a groups mapping orders the heatmap by difference between mean bsr for each group
 # Groups does not include reference strain
-fig, ax = bsr_results.heatmap(groups=[0,0,1])
+bsr_results.heatmap(groups=[0,0,1])
 plt.show()
 
 # Demonstration of identifying shared genes in strains A & D
@@ -74,5 +80,13 @@ for rec in bsr_results.bsr_records:
 # All are stored as lists in a set order
 hgt_protein = hgt_recs[0]
 print(hgt_protein.strain_names)
-print(hgt_protein.hit_scores)
+print(hgt_protein.blast_scores)
 print(hgt_protein.record_num) # This gives the order the sequences are found in the reference FastA
+
+print("""
+
+*****************************************************************************
+Test complete.
+Edit this file ({}/demo.py) to view the commands being run.
+*****************************************************************************
+""".format(package_path))

@@ -1,6 +1,7 @@
 from blast_score_ratio.bsr import get_bsr
 import matplotlib.pyplot as plt
 import inspect, os
+import Bio.SeqIO
 
 package_path = os.path.dirname(
     inspect.getfile(inspect.currentframe())  # gets string of .py path
@@ -27,7 +28,7 @@ bsr_results = get_bsr(
     # Order here should match comparison_fastas above. Used to obtain strain
     # specific data using index number or string
     strain_names = ['Strain A', 'Strain B', 'Strain C', 'Strain D'],
-    force_redo = True
+    force_redo = False
 )
 
 
@@ -82,6 +83,15 @@ hgt_protein = hgt_recs[0]
 print(hgt_protein.strain_names)
 print(hgt_protein.blast_scores)
 print(hgt_protein.record_num) # This gives the order the sequences are found in the reference FastA
+
+# if you wanted to write the reference sequences to a fasta file you'd use...
+with open(paff+'hgt_seqs.faa', 'w') as f:
+    for rec in hgt_recs:
+        # .get_strain_results yields a tuple
+        title, seq, score, bsr = rec.get_strain_results(0)
+        f.write('>'+title+'\n') # The '>' defines the start of a new fasta record
+        f.write(str(seq)) # sequences are biopython Seq types, so need converting before writing.
+        f.write('\n')
 
 print("""
 

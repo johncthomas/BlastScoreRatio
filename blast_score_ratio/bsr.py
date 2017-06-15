@@ -321,7 +321,7 @@ class BSR_Record:
         self.strain_names = [ref_strain_name]
 
 
-    def get_query(self, i):
+    def get_strain_results(self, i):
         return (self.fasta_titles[i], self.aa_seqs[i], self.blast_scores[i], self.bsr[i])
 
     def add_hit(self, title, score, seq, strain_name):
@@ -338,11 +338,13 @@ class BSR_Record:
 
     def __next__(self):
         try:
-            val = self.get_query(self._index)
+            val = self.get_strain_results(self._index)
             self._index+=1
             return val
         except IndexError:
             raise StopIteration()
+
+
 
     def __repr__(self):
         bsr_string = ' '.join('{:.2}'.format(score) for score in self.bsr[1:])

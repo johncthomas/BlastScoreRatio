@@ -1,3 +1,5 @@
+To install use 'pip install blast_score_ratio'.
+
 Obtain BLAST score ratios (BSRs), for use in comparative genomics and
 identifying horizontally transferred genetic material, from fastA files
 containing the protein sequences for different organisms.

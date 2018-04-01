@@ -10,7 +10,7 @@ strains or species, and find genes unique to a particular strain, for example.
 It should be run from within the Python environment using
 blast_score_ratio.bsr.get_bsr(*args)
 
-A series of BLAST are performed and objects are created for each reference
+A series of BLAST searches are performed and objects are created for each reference
 sequence containing the results of the analysis. Charts can be quickly generated showing relative BSR
 in the form of a 2-D graph, histogram and heatmap .
 
